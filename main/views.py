@@ -120,7 +120,7 @@ class MyChatBotView(generic.View):
                     sender_id = message['sender']['id']
                     message_text = message['message']['text']
                     #pp = event.objects.get_or_create(fbid =sender_id)[0]
-                    name = '%s %s'%(a['first_name'],a['last_name'])
+                    name = '%s %s'%(data['first_name'],data['last_name'])
 
 
 
