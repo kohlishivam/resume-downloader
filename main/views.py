@@ -27,7 +27,7 @@ def try_test(request):
     # Create the PDF object, using the response object as its "file."
     p = canvas.Canvas(response)
 
-    pp = resume_input.objects.get_or_create(fbid ='1204954086214698')[0]
+    pp = resume_input.objects.get_or_create('1204954086214698')[0]
     #print dir(p)
 
     # Draw things on the PDF. Here's where the PDF generation happens.
@@ -130,7 +130,7 @@ class MyChatBotView(generic.View):
                 try:
                     sender_id = message['sender']['id']
                     message_text = message['message']['text']
-                    pp = resume_input.objects.get_or_create(fbid =sender_id)[0]
+                    pp = resume_input.objects.get_or_create(sender_id)[0]
                     data = name_generator(sender_id)
 
 
