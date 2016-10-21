@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class resume_input(models.Model):
-	greetings = models.CharField(max_length = 250)
+	#greetings = models.CharField(max_length = 250)
 	name = models.CharField(max_length = 250)
 	emailid = models.EmailField(max_length = 1000)
 	contact = models.IntegerField(max_length = 100 ,  null=True)
