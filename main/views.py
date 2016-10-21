@@ -15,8 +15,6 @@ import json
 import requests
 
 
-
-
 PAGE_ACCESS_TOKEN = 'EAATyjn0ZCjToBAI8vGomXbBh1Uk2kHH37E62fjAkcuxhH2bW4rBZCKHftgrIiS72DILFlQVUlk6FO4Ut6k1zquTXnaZCkMLhYf2K6E7ZBt3wLHQilZCZBMfRsV3fQCilng7jfeMRoilcKsywlwnXemRbvF8KKf5kPAvR1BYPLiQwZDZD'
 
 
@@ -27,6 +25,8 @@ def try_test(request):
 
     # Create the PDF object, using the response object as its "file."
     p = canvas.Canvas(response)
+
+    pp = event.objects.get_or_create(fbid ='1204954086214698')[0]
     #print dir(p)
 
     # Draw things on the PDF. Here's where the PDF generation happens.
@@ -34,52 +34,52 @@ def try_test(request):
     p.setFont("Helvetica", 20)
     p.drawString(230,820, "SHIVAM KOHLI")
     p.setFont("Helvetica", 8)
-    p.drawString(230,810,"kohlishivam5522@gmail.com")
-    p.drawString(230,800,"9868074022")
+    p.drawString(230,810,pp.emailid)
+    p.drawString(230,800,pp.contact)
     p.setFont("Helvetica", 13)
     
     p.drawString(0,790,"Objective")
     p.setStrokeColor(colors.red)    
     p.line(0,785,500,785)
     p.setFont("Helvetica", 9)
-    p.drawString(20,775,"To pursue a dynamic and challenging career in a growth oriented company.")
+    p.drawString(20,775,pp.details_sub11)
 
     p.setFont("Helvetica", 13)
     p.drawString(0,755,"Professional Summary")
     p.setStrokeColor(colors.red)    
     p.line(0,750,500,750)
     p.setFont("Helvetica", 9)
-    p.drawString(20,740,"Guru Tegh Bahadur Institute Of Technology Student , 2nd year , B.Tech Computer Science")
-    p.drawString(20,730,"Fast and interested learner")
-    p.drawString(20,720,"In depth knowledge of Data Structures , Web development and Android development")
-    p.drawString(20,710,"Knowledge of various programming languages like C++ , Python , Javascript , php , etc")
+    p.drawString(20,740,pp.details_sub21)
+    p.drawString(20,730,pp.details_sub22)
+    p.drawString(20,720,pp.details_sub23)
+    p.drawString(20,710,pp.details_sub24)
     
     p.drawString(0,690,"Skills")
     p.setStrokeColor(colors.red)    
     p.line(0,685,500,685)
     p.setFont("Helvetica", 9)
-    p.drawString(20,675,"Data Structures : Well versed with data structures")
-    p.drawString(20,665,"Front-End Web Development : In depth knowledge of html,css,javascript,jquery etc")
-    p.drawString(20,655,"Backend-End Web Devepolment : Good knowedge of Django , Python ,php")
-    p.drawString(20,645,"Android Development (created basic apps revoloving around the use of various apis)")
+    p.drawString(20,675,pp.details_sub31)
+    p.drawString(20,665,pp.details_sub32)
+    p.drawString(20,655,pp.details_sub32)
+    p.drawString(20,645,pp.details_sub34)
 
     p.setFont("Helvetica", 13)
     p.drawString(0,625,"Education")
     p.setStrokeColor(colors.red)    
     p.line(0,620,500,620)
     p.setFont("Helvetica", 9)
-    p.drawString(20,610,"2015   High School Diploma from    Indraprastha International School,Dwarka New Delhi")
-    p.drawString(20,600,"2019   Bachelors of Technology:Computer Science from Guru Tegh Bahadur Institute of School,Rajouri Garden,New Delhi")
+    p.drawString(20,610,pp.details_sub41)
+    p.drawString(20,600,pp.details_sub42)
     
     p.setFont("Helvetica", 13)
     p.drawString(0,580,"Hobbies")
     p.setStrokeColor(colors.red)    
     p.line(0,575,500,575)
     p.setFont("Helvetica", 9)
-    p.drawString(20,565,"Learning Latest Web and Android Technologies")
-    p.drawString(20,555,"Currently working on chatbots")
-    p.drawString(20,545,"Surfing net")
-    p.drawString(20,535,"Playing badminton , cycling , Swimmng , Basketball")
+    p.drawString(20,565,pp.details_sub51)
+    p.drawString(20,555,pp.details_sub52)
+    p.drawString(20,545,pp.details_sub53)
+    p.drawString(20,535,pp.details_sub54)
 
 
 
@@ -129,7 +129,7 @@ class MyChatBotView(generic.View):
                 try:
                     sender_id = message['sender']['id']
                     message_text = message['message']['text']
-                    #pp = event.objects.get_or_create(fbid =sender_id)[0]
+                    pp = event.objects.get_or_create(fbid =sender_id)[0]
                     data = name_generator(sender_id)
 
 
@@ -137,9 +137,99 @@ class MyChatBotView(generic.View):
                         pp.greetings = 'TRUE'
                         pp.pstate='1'
                         pp.save()
-                        post_facebook_message(sender_id,'Hey , ' + name +', Please tell me your Event name ')
+                        post_facebook_message(sender_id,'Hey , ' + name +', Please tell me your email id ')
                        
                         
+                    elif pp.state =='1':
+                        pp.emailid = message_text
+                        pp.state='2'
+                        pp.save()
+                        post_facebook_message(sender_id,'great ,Now  Please tell me your contact phone number to be displayed on the resume ')
+         
+                    elif pp.state =='2':
+                        pp.contact = message_text
+                        pp.state='3'
+                        pp.save()
+                        post_facebook_message(sender_id,'okay, now tell me your objective to be displayed   ')
+
+                    elif pp.state =='3':
+                        pp.details_sub11 = message_text
+                        pp.state='4'
+                        pp.save()
+                        post_facebook_message(sender_id,'okay, now tell me your four professional summary one by one ')
+
+                    elif pp.state =='4':
+                        pp.details_sub21 = message_text
+                        pp.state='5'
+                        pp.save()
+                        post_facebook_message(sender_id,'okay, second ') 
+
+                    elif pp.state =='5':
+                        pp.details_sub22 = message_text
+                        pp.state='6'
+                        pp.save()
+                        post_facebook_message(sender_id,' Now, third ')   
+
+                    elif pp.state =='6':
+                        pp.details_sub23 = message_text
+                        pp.state='7'
+                        pp.save()
+                        post_facebook_message(sender_id,'Now , fourth ')                                              
+
+                    elif pp.state =='7':
+                        pp.details_sub24= message_text
+                        pp.state ='8'
+                        pp.save()
+                        post_facebook_message(sender_id,'Great , now tell me your main four skills one by one ')
+
+                    elif pp.state =='8':
+                        pp.details_sub41 = message_text
+                        pp.state='9'
+                        pp.save()
+                        post_facebook_message(sender_id,'Now , second ')                                             
+                    
+
+                    elif pp.state =='9':
+                        pp.details_sub42= message_text
+                        pp.state='10'
+                        pp.save()
+                        post_facebook_message(sender_id,'Now , third ')                     
+
+                    elif pp.state =='10':
+                        pp.details_sub43 = message_text
+                        pp.state='11'
+                        pp.save()
+                        post_facebook_message(sender_id,'now , fourth ')                             
+
+                    elif pp.state =='11':
+                        pp.details_sub44 = message_text
+                        pp.state='12'
+                        pp.save()
+                        post_facebook_message(sender_id,'Now , your four main hobbies one by one  ')    
+
+                    elif pp.state =='12':
+                        pp.details_sub51 = message_text
+                        pp.state='13'
+                        pp.save()
+                        post_facebook_message(sender_id,'second  ') 
+
+                    elif pp.state =='13':
+                        pp.details_sub52 = message_text
+                        pp.state='14'
+                        pp.save()
+                        post_facebook_message(sender_id,' third  ') 
+                    
+                    elif pp.state =='14':
+                        pp.details_sub53 = message_text
+                        pp.state='15'
+                        pp.save()
+                        post_facebook_message(sender_id,' fourth  ')
+
+                    elif pp.state =='15':
+                        pp.details_sub514 = message_text
+                        pp.save()
+                        post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  ')      
+
                     else:
                         post_facebook_message(sender_id,'please, say ,hey ,hi ,hello ,supp to start a conversation  , https://resume-pdf.herokuapp.com/try')
 
@@ -151,7 +241,6 @@ class MyChatBotView(generic.View):
 
 def index(request):
     return HttpResponse('Hello world')
-
 
 
 
