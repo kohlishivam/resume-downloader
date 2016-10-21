@@ -9,5 +9,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^try$', 'main.views.try_test', name = 'testing'),
+    url(r'^$',v.index),
 
 )

@@ -23,7 +23,7 @@ PAGE_ACCESS_TOKEN = 'EAATyjn0ZCjToBAOgI9PDxTmeC7hmZCtinfMQcmRZCapf9jt2nDhkFKZBOV
 def try_test(request):
     # Create the HttpResponse object with the appropriate PDF headers.
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="my cv.pdf"'
+    response['Content-Disposition'] = 'attachment; filename="mycv.pdf"'
 
     # Create the PDF object, using the response object as its "file."
     p = canvas.Canvas(response)
