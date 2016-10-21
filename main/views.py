@@ -5,15 +5,19 @@ from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 from django.http import HttpResponse
 from reportlab.platypus import Image
+from django.shortcuts import render
+from django.http import HttpResponse
+import urllib2
+from django.views import generic
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+import json
+import requests
 
 
 
 
 PAGE_ACCESS_TOKEN = 'EAATyjn0ZCjToBAOgI9PDxTmeC7hmZCtinfMQcmRZCapf9jt2nDhkFKZBOVHA2W9j0RYthJhHrtSZBh33ido0QLPZC2hmTwCmTP1NRS63Egq4WfrLn0EhSZAH9x9GkwwboYWUdKTFOuFIklMiXuxttlmQ3INk9uZCZAIZBUwxOD6zH0bwZDZD'
-
-
-
-
 
 
 def try_test(request):
@@ -116,15 +120,120 @@ class MyChatBotView(generic.View):
                     sender_id = message['sender']['id']
                     message_text = message['message']['text']
 
+
+                    if message_text.lower() in 'hi,hello,hey,supp'.split(','):
+                        p.greetings = 'TRUE'
+                        p.state='1'
+                        p.save()
+                        post_facebook_message(sender_id,'Hey , ' + name +', Please tell me your Event name ')
+                       
+                        
+                    elif p.state =='1':
+                        p.name = message_text
+                        p.state='2'
+                        p.save()
+                        post_facebook_message(sender_id,'great ,Now  Please tell me your contact phone number to be displayed on the page ')
+         
+                    elif p.state =='2':
+                        p.contact = message_text
+                        p.state='3'
+                        p.save()
+                        post_facebook_message(sender_id,'okay, now tell me your tagline  for the event  ')
+
+                    elif p.state =='3':
+                        p.tagline = message_text
+                        p.state='4'
+                        p.save()
+                        post_facebook_message(sender_id,'okay, now tell me your start date  for the event  in dd/mm/yy format ')
+
+                    elif p.state =='4':
+                        p.datestart = message_text
+                        p.state='5'
+                        p.save()
+                        post_facebook_message(sender_id,'okay, now tell me your end date  for the event dd/mm/yy format ') 
+
+                    elif p.state =='5':
+                        p.dateend = message_text
+                        p.state='6'
+                        p.save()
+                        post_facebook_message(sender_id,' Now, Please tell me your organiser name to be displayed on the page ')   
+
+                    elif p.state =='6':
+                        p.oname = message_text
+                        p.state='7'
+                        p.save()
+                        post_facebook_message(sender_id,'Now , Please tell me your conatct email id  to be displayed on the page ')                                              
+
+                    elif p.state =='7':
+                        p.emailid = message_text
+                        p.state='8'
+                        p.save()
+                        post_facebook_message(sender_id,'Now , Please tell if u have any twitter id  if yes send its link otherwise just send no  ')
+
+                    elif p.state =='8':
+                        p.twitterlink = message_text
+                        p.state='9'
+                        p.save()
+                        post_facebook_message(sender_id,'Now , Please tell if u have any fabeook page if yes send its link otherwise just send no  ')                                             
                     
 
-                    if 'hey' in message_text:
-                        data = userdeatils(sender_id)
-                        post_facebook_message(sender_id, 'hey'+ data +'!  Here is the link of your resume https://shrouded-reaches-29290.herokuapp.com/resume/'+data)
+                    elif p.state =='9':
+                        p.fblink = message_text
+                        p.state='10'
+                        p.save()
+                        post_facebook_message(sender_id,'Now , send me description of the event ')                     
 
+                    elif p.state =='10':
+                        p.description = message_text
+                        p.state='11'
+                        p.save()
+                        post_facebook_message(sender_id,'if u have a logo please send its link if not just send no ')                             
+
+                    elif p.state =='11':
+                        p.logolink = message_text
+                        p.state='12'
+                        p.save()
+                        post_facebook_message(sender_id,'Now , send me location of the event in one line seperated by commas  ')    
+
+                    elif p.state =='12':
+                        p.location = message_text
+                        p.state='13'
+                        p.save()
+                        post_facebook_message(sender_id,'send me the details of the 1st sub event  ') 
+
+                    elif p.state =='13':
+                        p.sub1 = message_text
+                        p.state='14'
+                        p.save()
+                        post_facebook_message(sender_id,' send me the details of the 2st sub event  ') 
+                    
+                    elif p.state =='14':
+                        p.sub2 = message_text
+                        p.state='15'
+                        p.save()
+                        post_facebook_message(sender_id,' send me the details of the 3st sub event  ')
+
+                    elif p.state =='15':
+                        p.sub3 = message_text
+                        p.state='16'
+                        p.save()
+                        post_facebook_message(sender_id,' send me the details of the 4st sub event  ')
+                    
+                    elif p.state =='16':
+                        p.sub4 = message_text
+                        p.state='17'
+                        p.save()
+                        post_facebook_message(sender_id,' here are your templates ')
+
+                    elif p.state =='17':
+                        message_text = 'templates'
+                        p.state='18'
+                        p.save()
+                        post_facebook_message(sender_id,' please select one of the templates given below ')
+                        post_facebook_message(sender_id,message_text)       
 
                     else:
-                        post_facebook_message(sender_id,'please say hey to talk')
+                        post_facebook_message(sender_id,'please, say ,hey ,hi ,hello ,supp to start a conversation  ')
 
                 except Exception as e:
                     print e
