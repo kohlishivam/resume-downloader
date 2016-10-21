@@ -92,7 +92,7 @@ def try_test(request):
 
 
 
- 
+
 def name_generator(fbid):
     url = 'https://graph.facebook.com/v2.6/%s?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=%s'%(fbid,PAGE_ACCESS_TOKEN)    
     resp = requests.get(url)
@@ -134,109 +134,6 @@ class MyChatBotView(generic.View):
                         post_facebook_message(sender_id,'Hey , ' + name +', Please tell me your Event name ')
                        
                         
-                    elif pp.state =='1':
-                        pp.name = message_text
-                        pp.state='2'
-                        pp.save()
-                        post_facebook_message(sender_id,'great ,Now  Please tell me your contact phone number to be displayed on the page ')
-         
-                    elif pp.state =='2':
-                        pp.contact = message_text
-                        pp.state='3'
-                        pp.save()
-                        post_facebook_message(sender_id,'okay, now tell me your tagline  for the event  ')
-
-                    elif pp.state =='3':
-                        pp.tagline = message_text
-                        pp.state='4'
-                        pp.save()
-                        post_facebook_message(sender_id,'okay, now tell me your start date  for the event  in dd/mm/yy format ')
-
-                    elif pp.state =='4':
-                        pp.datestart = message_text
-                        pp.state='5'
-                        pp.save()
-                        post_facebook_message(sender_id,'okay, now tell me your end date  for the event dd/mm/yy format ') 
-
-                    elif pp.state =='5':
-                        pp.dateend = message_text
-                        pp.state='6'
-                        pp.save()
-                        post_facebook_message(sender_id,' Now, Please tell me your organiser name to be displayed on the page ')   
-
-                    elif pp.state =='6':
-                        pp.oname = message_text
-                        pp.state='7'
-                        pp.save()
-                        post_facebook_message(sender_id,'Now , Please tell me your conatct email id  to be displayed on the page ')                                              
-
-                    elif pp.state =='7':
-                        pp.state='8'
-                        pp.save()
-                        post_facebook_message(sender_id,'Now , Please tell if u have any twitter id  if yes send its link otherwise just send no  ')
-
-                    elif pp.state =='8':
-                        pp.twitterlink = message_text
-                        pp.state='9'
-                        pp.save()
-                        post_facebook_message(sender_id,'Now , Please tell if u have any fabeook page if yes send its link otherwise just send no  ')                                             
-                    
-
-                    elif pp.state =='9':
-                        pp.fblink = message_text
-                        pp.state='10'
-                        pp.save()
-                        post_facebook_message(sender_id,'Now , send me description of the event ')                     
-
-                    elif pp.state =='10':
-                        pp.description = message_text
-                        pp.state='11'
-                        pp.save()
-                        post_facebook_message(sender_id,'if u have a logo please send its link if not just send no ')                             
-
-                    elif pp.state =='11':
-                        pp.logolink = message_text
-                        pp.state='12'
-                        pp.save()
-                        post_facebook_message(sender_id,'Now , send me location of the event in one line seperated by commas  ')    
-
-                    elif pp.state =='12':
-                        pp.location = message_text
-                        pp.state='13'
-                        pp.save()
-                        post_facebook_message(sender_id,'send me the details of the 1st sub event  ') 
-
-                    elif pp.state =='13':
-                        pp.sub1 = message_text
-                        pp.state='14'
-                        pp.save()
-                        post_facebook_message(sender_id,' send me the details of the 2st sub event  ') 
-                    
-                    elif pp.state =='14':
-                        pp.sub2 = message_text
-                        pp.state='15'
-                        pp.save()
-                        post_facebook_message(sender_id,' send me the details of the 3st sub event  ')
-
-                    elif pp.state =='15':
-                        pp.sub3 = message_text
-                        pp.state='16'
-                        pp.save()
-                        post_facebook_message(sender_id,' send me the details of the 4st sub event  ')
-                    
-                    elif pp.state =='16':
-                        pp.sub4 = message_text
-                        pp.state='17'
-                        pp.save()
-                        post_facebook_message(sender_id,' here are your templates ')
-
-                    elif pp.state =='17':
-                        message_text = 'templates'
-                        pp.state='18'
-                        pp.save()
-                        post_facebook_message(sender_id,' please select one of the templates given below ')
-                        post_facebook_message(sender_id,message_text)       
-
                     else:
                         post_facebook_message(sender_id,'please, say ,hey ,hi ,hello ,supp to start a conversation  , https://resume-pdf.herokuapp.com/try')
 
