@@ -87,14 +87,18 @@ def try_test(request):
     p.showPage()
     p.save()
     return response
+ 
 
 
-def userdeatils(fbid):
-    url = 'https://graph.facebook.com/v2.6/' + fbid + '?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=' + PAGE_ACCESS_TOKEN
-    resp = requests.get(url=url)
-    data =json.loads(resp.text)
-    return data         
 
+
+ 
+def name_generator(fbid):
+    url = 'https://graph.facebook.com/v2.6/%s?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=%s'%(fbid,PAGE_ACCESS_TOKEN)    
+    resp = requests.get(url)
+    data = json.loads(resp.text)
+    name = '%s '%(data['first_name'])
+    return name
 
 
 
@@ -120,8 +124,7 @@ class MyChatBotView(generic.View):
                     sender_id = message['sender']['id']
                     message_text = message['message']['text']
                     #pp = event.objects.get_or_create(fbid =sender_id)[0]
-                    name = '%s %s'%(data['first_name'],data['last_name'])
-
+                    data = name_generator(sender_id)
 
 
                     if message_text.lower() in 'hi,hello,hey,supp'.split(','):
