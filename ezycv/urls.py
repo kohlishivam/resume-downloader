@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^try$', 'main.views.try_test', name = 'testing'),
+    url(r'^try$', 'main.views.resume', name = 'testing'),
     url(r'^$',v.index),
     url(r'^facebook_auth/?$',v.MyChatBotView.as_view()),
     #url(r'^resume/(?P<search_string>\d+)$', 'main.views.resume', name = 'testing'),
