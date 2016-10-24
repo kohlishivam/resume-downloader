@@ -229,7 +229,7 @@ class MyChatBotView(generic.View):
                         pp.save()
                         post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  ')      
 
-                    elif:
+                    else
                         post_facebook_message(sender_id,'please, say ,hey ,hi ,hello ,supp to start a conversation')
 
                 except Exception as e:
