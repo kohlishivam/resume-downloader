@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-
 from django.shortcuts import render
 from reportlab.pdfgen import canvas
 from reportlab.lib import colors
@@ -24,7 +22,6 @@ def resume(request,search_string):
     # Create the HttpResponse object with the appropriate PDF headers.
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="mycv.pdf"'
-
     # Create the PDF object, using the response object as its "file."
     p = canvas.Canvas(response)
     pp = resume_input.objects.get_or_create(fbid=search_string)[0]
