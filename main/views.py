@@ -134,7 +134,7 @@ class MyChatBotView(generic.View):
 
                     if message_text.lower() in 'hi,hello,hey,supp'.split(','):
                         pp.greetings = 'TRUE'
-                        pp.pstate='1'
+                        pp.state='1'
                         pp.save()
                         post_facebook_message(sender_id,'Hey , ' + data +', Please tell me your email id ')
                        
