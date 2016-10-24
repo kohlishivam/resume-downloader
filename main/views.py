@@ -201,7 +201,7 @@ class MyChatBotView(generic.View):
                         post_facebook_message(sender_id,'now , fourth ')
 
                     elif pp.state =='11':
-                        pp.details_sub24= message_text
+                        pp.details_sub34= message_text
                         pp.state ='12'
                         pp.save()
                         post_facebook_message(sender_id,'Great , now tell me your educational qualification,first')
@@ -241,7 +241,7 @@ class MyChatBotView(generic.View):
                         post_facebook_message(sender_id,' fourth  ')
 
                     elif pp.state =='17':
-                        pp.details_sub514 = message_text
+                        pp.details_sub54 = message_text
                         pp.save()
                         post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  https://resume-pdf.herokuapp.com/try  ')      
 
