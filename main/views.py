@@ -128,7 +128,7 @@ class MyChatBotView(generic.View):
                 try:
                     sender_id = message['sender']['id']
                     message_text = message['message']['text']
-                    pp = resume_input.objects.get_or_create(sender_ids)[0]
+                    pp = resume_input.objects.get_or_create(sender_id)[0]
                     data = name_generator(sender_id)
 
 
