@@ -27,7 +27,6 @@ def try_test(request):
 
     # Create the PDF object, using the response object as its "file."
     p = canvas.Canvas(response)
-
     pp = resume_input.objects.get_or_create(fbid='1204954086214698')[0]
     #print dir(p)
     # Draw things on the PDF. Here's where the PDF generation happens.
@@ -84,7 +83,6 @@ def try_test(request):
 
 
 
-    # Close the PDF object cleanly, and we're done.
     p.showPage()
     p.save()
     return response
