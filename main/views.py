@@ -1,6 +1,8 @@
-from django.shortcuts import render
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-# Create your views here.
+
+from django.shortcuts import render
 from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 from django.http import HttpResponse
