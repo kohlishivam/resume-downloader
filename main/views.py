@@ -182,52 +182,68 @@ class MyChatBotView(generic.View):
                         post_facebook_message(sender_id,'Great , now tell me your main four skills one by one ')
 
                     elif pp.state =='8':
-                        pp.details_sub41 = message_text
+                        pp.details_sub31 = message_text
                         pp.state='9'
                         pp.save()
                         post_facebook_message(sender_id,'Now , second ')                                             
                     
 
                     elif pp.state =='9':
-                        pp.details_sub42= message_text
+                        pp.details_sub32= message_text
                         pp.state='10'
                         pp.save()
                         post_facebook_message(sender_id,'Now , third ')                     
 
                     elif pp.state =='10':
-                        pp.details_sub43 = message_text
+                        pp.details_sub33 = message_text
                         pp.state='11'
                         pp.save()
-                        post_facebook_message(sender_id,'now , fourth ')                             
+                        post_facebook_message(sender_id,'now , fourth ')
 
                     elif pp.state =='11':
-                        pp.details_sub44 = message_text
-                        pp.state='12'
+                        pp.details_sub24= message_text
+                        pp.state ='12'
                         pp.save()
-                        post_facebook_message(sender_id,'Now , your four main hobbies one by one  ')    
+                        post_facebook_message(sender_id,'Great , now tell me your educational qualification,first')
 
                     elif pp.state =='12':
-                        pp.details_sub51 = message_text
+                        pp.details_sub41 = message_text
                         pp.state='13'
+                        pp.save()
+                        post_facebook_message(sender_id,'Now , second ')                                             
+                    
+                             
+
+                    elif pp.state =='13':
+                        pp.details_sub42 = message_text
+                        pp.state='14'
+                        pp.save()
+                        post_facebook_message(sender_id,'Now , your four main hobbies one by one  ') 
+
+
+
+                    elif pp.state =='14':
+                        pp.details_sub51 = message_text
+                        pp.state='15'
                         pp.save()
                         post_facebook_message(sender_id,'second  ') 
 
-                    elif pp.state =='13':
+                    elif pp.state =='15':
                         pp.details_sub52 = message_text
-                        pp.state='14'
+                        pp.state='16'
                         pp.save()
                         post_facebook_message(sender_id,' third  ') 
                     
-                    elif pp.state =='14':
+                    elif pp.state =='16':
                         pp.details_sub53 = message_text
-                        pp.state='15'
+                        pp.state='17'
                         pp.save()
                         post_facebook_message(sender_id,' fourth  ')
 
-                    elif pp.state =='15':
+                    elif pp.state =='17':
                         pp.details_sub514 = message_text
                         pp.save()
-                        post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  ')      
+                        post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  https://resume-pdf.herokuapp.com/try  ')      
 
                     else:
                         post_facebook_message(sender_id,'please, say ,hey ,hi ,hello ,supp to start a conversation')
