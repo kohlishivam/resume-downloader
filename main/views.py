@@ -20,14 +20,14 @@ from main.models import resume_input
 
 PAGE_ACCESS_TOKEN = 'EAATyjn0ZCjToBAI8vGomXbBh1Uk2kHH37E62fjAkcuxhH2bW4rBZCKHftgrIiS72DILFlQVUlk6FO4Ut6k1zquTXnaZCkMLhYf2K6E7ZBt3wLHQilZCZBMfRsV3fQCilng7jfeMRoilcKsywlwnXemRbvF8KKf5kPAvR1BYPLiQwZDZD'
 
-def try_test(request):
+def resume(request,search_string):
     # Create the HttpResponse object with the appropriate PDF headers.
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="mycv.pdf"'
 
     # Create the PDF object, using the response object as its "file."
     p = canvas.Canvas(response)
-    pp = resume_input.objects.get_or_create(fbid='1204954086214698')[0]
+    pp = resume_input.objects.get_or_create(fbid=search_string)[0]
     #print dir(p)
     # Draw things on the PDF. Here's where the PDF generation happens.
     # See the ReportLab documentation for the full list of functionality.
@@ -243,7 +243,7 @@ class MyChatBotView(generic.View):
                     elif pp.state =='17':
                         pp.details_sub54 = message_text
                         pp.save()
-                        post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  https://resume-pdf.herokuapp.com/try  ')      
+                        post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  https://resume-pdf.herokuapp.com/try/'+sender_id)      
 
                     else:
                         post_facebook_message(sender_id,'please, say ,hey ,hi ,hello ,supp to start a conversation')

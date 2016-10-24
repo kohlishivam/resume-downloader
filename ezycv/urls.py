@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^try$', 'main.views.try_test', name = 'testing'),
     url(r'^$',v.index),
     url(r'^facebook_auth/?$',v.MyChatBotView.as_view()),
+    url(r'^resume/(?P<search_string>[\*\w\-]+)/$', 'main.views.resume', name = 'testing'),
 
 )
