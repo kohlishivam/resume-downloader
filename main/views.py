@@ -136,7 +136,7 @@ class MyChatBotView(generic.View):
                         #pp.greetings = 'TRUE'
                         pp.pstate='1'
                         pp.save()
-                        post_facebook_message(sender_id,'Hey , ' + name +', Please tell me your email id ')
+                        post_facebook_message(sender_id,'Hey , ' + data +', Please tell me your email id ')
                        
                         
                     elif pp.state =='1':
