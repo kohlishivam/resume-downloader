@@ -29,54 +29,54 @@ def resume(request):
     # Draw things on the PDF. Here's where the PDF generation happens.
     # See the ReportLab documentation for the full list of functionality.
     p.setFont("Helvetica", 20)
-    p.drawString(230,820, "SHIVAM KOHLI")
+    #p.drawString(230,820, pp.name)
     p.setFont("Helvetica", 8)
-    p.drawString(230,810,pp.emailid)
-    p.drawString(230,800,pp.contact)
+    #p.drawString(230,810,pp.emailid)
+    #p.drawString(230,800,pp.contact)
     p.setFont("Helvetica", 13)
     
     p.drawString(0,790,"Objective")
     p.setStrokeColor(colors.red)    
     p.line(0,785,500,785)
     p.setFont("Helvetica", 9)
-    p.drawString(20,775,pp.details_sub11)
+    #p.drawString(20,775,pp.details_sub11)
 
     p.setFont("Helvetica", 13)
     p.drawString(0,755,"Professional Summary")
     p.setStrokeColor(colors.red)    
     p.line(0,750,500,750)
     p.setFont("Helvetica", 9)
-    p.drawString(20,740,pp.details_sub21)
-    p.drawString(20,730,pp.details_sub22)
-    p.drawString(20,720,pp.details_sub23)
-    p.drawString(20,710,pp.details_sub24)
+    #p.drawString(20,740,pp.details_sub21)
+    #p.drawString(20,730,pp.details_sub22)
+    #p.drawString(20,720,pp.details_sub23)
+    #p.drawString(20,710,pp.details_sub24)
     
     p.drawString(0,690,"Skills")
     p.setStrokeColor(colors.red)    
     p.line(0,685,500,685)
     p.setFont("Helvetica", 9)
-    p.drawString(20,675,pp.details_sub31)
-    p.drawString(20,665,pp.details_sub32)
-    p.drawString(20,655,pp.details_sub32)
-    p.drawString(20,645,pp.details_sub34)
+    #p.drawString(20,675,pp.details_sub31)
+    #p.drawString(20,665,pp.details_sub32)
+    #p.drawString(20,655,pp.details_sub32)
+    #p.drawString(20,645,pp.details_sub34)
 
     p.setFont("Helvetica", 13)
     p.drawString(0,625,"Education")
     p.setStrokeColor(colors.red)    
     p.line(0,620,500,620)
     p.setFont("Helvetica", 9)
-    p.drawString(20,610,pp.details_sub41)
-    p.drawString(20,600,pp.details_sub42)
+    #p.drawString(20,610,pp.details_sub41)
+    #p.drawString(20,600,pp.details_sub42)
     
     p.setFont("Helvetica", 13)
     p.drawString(0,580,"Hobbies")
     p.setStrokeColor(colors.red)    
     p.line(0,575,500,575)
     p.setFont("Helvetica", 9)
-    p.drawString(20,565,pp.details_sub51)
-    p.drawString(20,555,pp.details_sub52)
-    p.drawString(20,545,pp.details_sub53)
-    p.drawString(20,535,pp.details_sub54)
+    #p.drawString(20,565,pp.details_sub51)
+    #p.drawString(20,555,pp.details_sub52)
+    #p.drawString(20,545,pp.details_sub53)
+    #p.drawString(20,535,pp.details_sub54)
 
 
 
@@ -127,7 +127,6 @@ class MyChatBotView(generic.View):
                     message_text = message['message']['text']
                     pp = resume_input.objects.get_or_create(fbid =sender_id)[0]
                     data = name_generator(sender_id)
-
 
                     if message_text.lower() in 'hi,hello,hey,supp'.split(','):
                         pp.greetings = 'TRUE'
