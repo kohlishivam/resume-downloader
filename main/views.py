@@ -47,8 +47,8 @@ def resume(request):
     p.line(0,750,500,750)
     p.setFont("Helvetica", 9)
     p.drawString(20,740,pp.details_sub21)
-    p.drawString(20,730,pp.details_sub22)
-    p.drawString(20,720,pp.details_sub23)
+    #p.drawString(20,730,pp.details_sub22)
+    #p.drawString(20,720,pp.details_sub23)
     #p.drawString(20,710,pp.details_sub24)
     
     p.drawString(0,690,"Skills")
