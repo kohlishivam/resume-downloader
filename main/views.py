@@ -31,7 +31,7 @@ def resume(request):
     p.setFont("Helvetica", 20)
     p.drawString(230,820, pp.name)
     p.setFont("Helvetica", 8)
-    #p.drawString(230,810,pp.emailid)
+    p.drawString(230,810,pp.emailid)
     #p.drawString(230,800,pp.contact)
     p.setFont("Helvetica", 13)
     
