@@ -29,7 +29,7 @@ def resume(request):
     # Draw things on the PDF. Here's where the PDF generation happens.
     # See the ReportLab documentation for the full list of functionality.
     p.setFont("Helvetica", 20)
-    #p.drawString(230,820, pp.name)
+    p.drawString(230,820, pp.name)
     p.setFont("Helvetica", 8)
     #p.drawString(230,810,pp.emailid)
     #p.drawString(230,800,pp.contact)
@@ -130,7 +130,7 @@ class MyChatBotView(generic.View):
 
                     if message_text.lower() in 'hi,hello,hey,supp'.split(','):
                         pp.greetings = 'TRUE'
-                        pp.state='1'
+                        pp.state='17'
                         pp.save()
                         post_facebook_message(sender_id,'Hey , ' + data +', Please tell me your email id ')
                        
