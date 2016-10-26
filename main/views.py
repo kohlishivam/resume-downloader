@@ -32,23 +32,23 @@ def resume(request):
     p.drawString(230,820, pp.name)
     p.setFont("Helvetica", 8)
     p.drawString(230,810,pp.emailid)
-    #p.drawString(230,800,pp.contact)
+    p.drawString(230,800,pp.contact)
     p.setFont("Helvetica", 13)
     
     p.drawString(0,790,"Objective")
     p.setStrokeColor(colors.red)    
     p.line(0,785,500,785)
     p.setFont("Helvetica", 9)
-    #p.drawString(20,775,pp.details_sub11)
+    p.drawString(20,775,pp.details_sub11)
 
     p.setFont("Helvetica", 13)
     p.drawString(0,755,"Professional Summary")
     p.setStrokeColor(colors.red)    
     p.line(0,750,500,750)
     p.setFont("Helvetica", 9)
-    #p.drawString(20,740,pp.details_sub21)
-    #p.drawString(20,730,pp.details_sub22)
-    #p.drawString(20,720,pp.details_sub23)
+    p.drawString(20,740,pp.details_sub21)
+    p.drawString(20,730,pp.details_sub22)
+    p.drawString(20,720,pp.details_sub23)
     #p.drawString(20,710,pp.details_sub24)
     
     p.drawString(0,690,"Skills")
@@ -143,7 +143,7 @@ class MyChatBotView(generic.View):
          
                     elif pp.state =='2':
                         pp.contact = message_text
-                        pp.state='17'
+                        pp.state='3'
                         pp.save()
                         post_facebook_message(sender_id,'okay, now tell me your objective to be displayed   ')
 
@@ -167,7 +167,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state =='6':
                         pp.details_sub23 = message_text
-                        pp.state='7'
+                        pp.state='17'
                         pp.save()
                         post_facebook_message(sender_id,'Now , fourth ')                                              
 
