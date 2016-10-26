@@ -46,37 +46,37 @@ def resume(request):
     p.setStrokeColor(colors.red)    
     p.line(0,750,500,750)
     p.setFont("Helvetica", 9)
-    #p.drawString(20,740,pp.details_sub21)
-    #p.drawString(20,730,pp.details_sub22)
-    #p.drawString(20,720,pp.details_sub23)
-    #p.drawString(20,710,pp.details_sub24)
+    p.drawString(20,740,pp.details_sub21)
+    p.drawString(20,730,pp.details_sub22)
+    p.drawString(20,720,pp.details_sub23)
+    p.drawString(20,710,pp.details_sub24)
     
     p.drawString(0,690,"Skills")
     p.setStrokeColor(colors.red)    
     p.line(0,685,500,685)
     p.setFont("Helvetica", 9)
-    #p.drawString(20,675,pp.details_sub31)
-    #p.drawString(20,665,pp.details_sub32)
-    #p.drawString(20,655,pp.details_sub32)
-    #p.drawString(20,645,pp.details_sub34)
+    p.drawString(20,675,pp.details_sub31)
+    p.drawString(20,665,pp.details_sub32)
+    p.drawString(20,655,pp.details_sub32)
+    p.drawString(20,645,pp.details_sub34)
 
     p.setFont("Helvetica", 13)
     p.drawString(0,625,"Education")
     p.setStrokeColor(colors.red)    
     p.line(0,620,500,620)
     p.setFont("Helvetica", 9)
-    #p.drawString(20,610,pp.details_sub41)
-    #p.drawString(20,600,pp.details_sub42)
+    p.drawString(20,610,pp.details_sub41)
+    p.drawString(20,600,pp.details_sub42)
     
     p.setFont("Helvetica", 13)
     p.drawString(0,580,"Hobbies")
     p.setStrokeColor(colors.red)    
     p.line(0,575,500,575)
     p.setFont("Helvetica", 9)
-    #p.drawString(20,565,pp.details_sub51)
-    #p.drawString(20,555,pp.details_sub52)
-    #p.drawString(20,545,pp.details_sub53)
-    #p.drawString(20,535,pp.details_sub54)
+    p.drawString(20,565,pp.details_sub51)
+    p.drawString(20,555,pp.details_sub52)
+    p.drawString(20,545,pp.details_sub53)
+    p.drawString(20,535,pp.details_sub54)
 
 
 
@@ -149,7 +149,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state =='3':
                         pp.details_sub11 = message_text
-                        pp.state='17'
+                        pp.state='4'
                         pp.save()
                         post_facebook_message(sender_id,'okay, now tell me your four professional summary one by one ')
 
