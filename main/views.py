@@ -46,7 +46,7 @@ def resume(request):
     p.setStrokeColor(colors.red)    
     p.line(0,750,500,750)
     p.setFont("Helvetica", 9)
-    p.drawString(20,740,pp.details_sub21)
+    #p.drawString(20,740,pp.details_sub21)
     #p.drawString(20,730,pp.details_sub22)
     #p.drawString(20,720,pp.details_sub23)
     #p.drawString(20,710,pp.details_sub24)
@@ -149,7 +149,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state =='3':
                         pp.details_sub11 = message_text
-                        pp.state='4'
+                        pp.state='17'
                         pp.save()
                         post_facebook_message(sender_id,'okay, now tell me your four professional summary one by one ')
 
@@ -167,7 +167,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state =='6':
                         pp.details_sub23 = message_text
-                        pp.state='17'
+                        pp.state='7'
                         pp.save()
                         post_facebook_message(sender_id,'Now , fourth ')                                              
 
