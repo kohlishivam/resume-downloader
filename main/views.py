@@ -130,7 +130,7 @@ class MyChatBotView(generic.View):
 
                     if message_text.lower() in 'hi,hello,hey,supp'.split(','):
                         pp.greetings = 'TRUE'
-                        pp.state='17'
+                        pp.state='1'
                         pp.save()
                         post_facebook_message(sender_id,'Hey , ' + data +', Please tell me your email id ')
                        
@@ -143,7 +143,7 @@ class MyChatBotView(generic.View):
          
                     elif pp.state =='2':
                         pp.contact = message_text
-                        pp.state='3'
+                        pp.state='17'
                         pp.save()
                         post_facebook_message(sender_id,'okay, now tell me your objective to be displayed   ')
 
