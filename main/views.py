@@ -19,11 +19,6 @@ from main.models import resume_input
 PAGE_ACCESS_TOKEN = 'EAATyjn0ZCjToBAI8vGomXbBh1Uk2kHH37E62fjAkcuxhH2bW4rBZCKHftgrIiS72DILFlQVUlk6FO4Ut6k1zquTXnaZCkMLhYf2K6E7ZBt3wLHQilZCZBMfRsV3fQCilng7jfeMRoilcKsywlwnXemRbvF8KKf5kPAvR1BYPLiQwZDZD'
 
 
-
-
-
-
-
 def resume(request,id):
     # Create the HttpResponse object with the appropriate PDF headers.
     response = HttpResponse(content_type='application/pdf')
@@ -93,11 +88,60 @@ def resume(request,id):
 
 
 
+
+def cards(fbid):
+    
+    response_object = {
+      "recipient": {
+        "id": fbid
+      },
+      "message": {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [{
+              "title": "party theme",
+              "subtitle": "party,fests,weddings,birthdays etc",
+              "item_url": "https://myresumemaker.herokuapp.com/temp1",               
+              "image_url": "https://scontent-sit4-1.xx.fbcdn.net/v/l/t35.0-12/14800069_1785774908361060_98733447_o.png?oh=5e3268cb388a25f6d84cb2c27b3c757f&oe=580A723E",
+              "buttons": [{
+                "type": "web_url",
+                "url": "https://myresumemaker.herokuapp.com/temp1",
+                "title": "Open your website in this theme"
+              }, {
+                "type": "element_share"
+              }]
+              
+            }]
+          }
+        }
+      }
+    }
+
+    return json.dumps(response_object)
+
+
+
+
+
+
+
+
 def post_facebook_message(fbid,message_text):
     post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-    response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text":message_text}})
-    status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
-    print status.json()
+    # response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text":message_text}})
+    # status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
+    # print status.json()
+    if message_text == 'templates':
+        response_msg = cards(fbid)
+
+    else:
+        response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text":message_text}})
+
+    requests.post(post_message_url, 
+                    headers={"Content-Type": "application/json"},
+                    data=response_msg)
 
 
 
@@ -251,7 +295,15 @@ class MyChatBotView(generic.View):
                     elif pp.state =='18':
                         pp.name = message_text
                         pp.save()
-                        post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  https://resume-pdf.herokuapp.com/try/'+sender_id)      
+                        post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  https://resume-pdf.herokuapp.com/try/'+sender_id)  
+                        post_facebook_message(sender_id,templates)
+
+                    elif p.state =='17':
+                        message_text = 'templates'
+                        p.state='18'
+                        p.save()
+                        post_facebook_message(sender_id,' please select one of the templates given below ')
+                        post_facebook_message(sender_id,message_text)                            
 
                     else:
                         post_facebook_message(sender_id,'please, say ,hey ,hi ,hello ,supp to start a conversation')
