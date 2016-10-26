@@ -7,7 +7,7 @@ class resume_input(models.Model):
     fbid= models.CharField(max_length = 1000 )
     name = models.CharField(max_length = 250)
     emailid = models.EmailField(max_length = 1000)
-    contact = models.IntegerField(max_length = 100)
+    contact = models.CharField(max_length = 100)
     details_sub11 = models.CharField(max_length = 100)
     details_sub21 = models.CharField(max_length = 100)
     details_sub22 = models.CharField(max_length = 250)
