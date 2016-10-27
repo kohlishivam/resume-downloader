@@ -96,14 +96,14 @@ def cards(fbid):
           "payload": {
             "template_type": "generic",
             "elements": [{
-              "title": "party theme",
-              "subtitle": "party,fests,weddings,birthdays etc",
-              "item_url": "https://myresumemaker.herokuapp.com/temp1",               
-              "image_url": "https://scontent-sit4-1.xx.fbcdn.net/v/l/t35.0-12/14800069_1785774908361060_98733447_o.png?oh=5e3268cb388a25f6d84cb2c27b3c757f&oe=580A723E",
+              "title": "RESUME",
+              "subtitle": "Don,t wait just click",
+              "item_url": "https://resume-pdf.herokuapp.com/try/%s"%(fbid),               
+              "image_url": "https://www.google.co.in/imgres?imgurl=https%3A%2F%2Fresumegenius.com%2Fwp-content%2Fuploads%2F2015%2F04%2Fresume-writing-image.jpg&imgrefurl=https%3A%2F%2Fresumegenius.com%2Fresume-samples&docid=Im0LRhWKKEIV4M&tbnid=RoJ3A0-BHrxhvM%3A&w=245&h=135&itg=1&client=safari&bih=739&biw=1280&ved=0ahUKEwjw6-vDwfvPAhWHRY8KHdSOCfwQMwh-KEEwQQ&iact=mrc&uact=8",
               "buttons": [{
                 "type": "web_url",
-                "url": "https://myresumemaker.herokuapp.com/temp1",
-                "title": "Open your website in this theme"
+                "url": "https://resume-pdf.herokuapp.com/try/%s"%(fbid),  
+                "title": "DOWNLOAD"
               }, {
                 "type": "element_share"
               }]
@@ -284,7 +284,7 @@ class MyChatBotView(generic.View):
                     elif pp.state =='18':
                         pp.name = message_text
                         pp.save()
-                        post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  https://resume-pdf.herokuapp.com/try/'+sender_id) 
+                        post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf') 
                         post_facebook_message(sender_id,'templates')
 
                     else:
