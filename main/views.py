@@ -79,14 +79,9 @@ def resume(request,id):
     p.drawString(20,545,pp.details_sub53)
     p.drawString(20,535,pp.details_sub54)
 
-
-
     p.showPage()
     p.save()
     return response
- 
-
-
 
 
 def cards(fbid):
@@ -120,12 +115,6 @@ def cards(fbid):
     }
 
     return json.dumps(response_object)
-
-
-
-
-
-
 
 
 def post_facebook_message(fbid,message_text):
@@ -296,10 +285,9 @@ class MyChatBotView(generic.View):
                         pp.name = message_text
                         pp.save()
                         post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  https://resume-pdf.herokuapp.com/try/'+sender_id) 
-                        message_text = templates 
-                        post_facebook_message(sender_id,message_text)
-
-                                               
+                        post_facebook_message(sender_id,' you are done with providing the detail, now click the link that will automatically download a pdf name mycv.pdf  https://resume-pdf.herokuapp.com/try/'+sender_id) 
+                        #message_text = templates 
+                        #post_facebook_message(sender_id,message_text)
 
                     else:
                         post_facebook_message(sender_id,'please, say ,hey ,hi ,hello ,supp to start a conversation')
