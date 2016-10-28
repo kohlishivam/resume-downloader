@@ -175,7 +175,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state =='1':
                         pp.emailid = message_text
-                        pp.state='2'
+                        pp.state='3'
                         pp.save()
                         post_facebook_message(sender_id,'Your date of birth')
                        
