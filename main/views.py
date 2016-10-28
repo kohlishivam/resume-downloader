@@ -234,7 +234,7 @@ class MyChatBotView(generic.View):
                             if message_text == 'no':
                                 pp.state = '12'
                                 pp.save()
-                                post_facebook_message(sender_id,'COOL')
+                                post_facebook_message(sender_id,'COOL,type no to continue')
 
                             else :
                                 pp.educational_qualifications_2 = message_text
@@ -247,7 +247,7 @@ class MyChatBotView(generic.View):
                             if message_text == 'no':
                                 pp.state = '12'
                                 pp.save()
-                                post_facebook_message(sender_id,'COOL')
+                                post_facebook_message(sender_id,'COOL,type no to continue')
 
 
                             else :
@@ -257,7 +257,7 @@ class MyChatBotView(generic.View):
                                 post_facebook_message(sender_id,'Any more? if no simply type no')
 
                     elif pp.state =='12':
-                        if message_text=='COOL' :
+                        if message_text=='no' :
                             pp.state ='13'
                             pp.save()
                             post_facebook_message(sender_id,'Great , now tell me your skills in your field,first')
@@ -285,7 +285,7 @@ class MyChatBotView(generic.View):
                             if message_text == 'no':
                                 pp.state = '17'
                                 pp.save()
-                                post_facebook_message(sender_id,'COOL')
+                                post_facebook_message(sender_id,'COOL,type no to continue')
 
 
                             else :
@@ -299,7 +299,7 @@ class MyChatBotView(generic.View):
                             if message_text == 'no':
                                 pp.state = '17'
                                 pp.save()
-                                post_facebook_message(sender_id,'COOL')
+                                post_facebook_message(sender_id,'COOL,type no to continue')
 
 
                             else :
@@ -336,7 +336,7 @@ class MyChatBotView(generic.View):
                             if message_text == 'no':
                                 pp.state = '22'
                                 pp.save()
-                                post_facebook_message(sender_id,'COOL')
+                                post_facebook_message(sender_id,'COOL,type no to continue')
 
 
                             else :
@@ -350,7 +350,7 @@ class MyChatBotView(generic.View):
                             if message_text == 'no':
                                 pp.state = '22'
                                 pp.save()
-                                post_facebook_message(sender_id,'COOL')
+                                post_facebook_message(sender_id,'COOL,type no to continue')
 
 
                             else :
@@ -390,7 +390,7 @@ class MyChatBotView(generic.View):
                             if message_text == 'no':
                                 pp.state = '28'
                                 pp.save()
-                                post_facebook_message(sender_id,'COOL')
+                                post_facebook_message(sender_id,'COOL,type no to continue')
 
 
                             else :
@@ -404,7 +404,7 @@ class MyChatBotView(generic.View):
                             if message_text == 'no':
                                 pp.state = '28'
                                 pp.save()
-                                post_facebook_message(sender_id,'COOL')
+                                post_facebook_message(sender_id,'COOL,type no to continue')
 
 
                             else :
