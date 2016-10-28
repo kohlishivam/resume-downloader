@@ -257,18 +257,16 @@ class MyChatBotView(generic.View):
                                 post_facebook_message(sender_id,'Any more? if no simply type no')
 
                     elif pp.state =='12':
+                        if message_text=='COOL' :
+                            pp.state ='13'
+                            pp.save()
+                            post_facebook_message(sender_id,'Great , now tell me your skills in your field,first')
                         
-                        if message_text!='no':
+                        else:
                             pp.educational_qualifications_4 = message_text
                             pp.state ='13'
                             pp.save()
                             post_facebook_message(sender_id,'Great , now tell me your skills in your field,first')
-
-                        else:
-                            pp.state ='13'
-                            pp.save()
-                            post_facebook_message(sender_id,'Great , now tell me your skills in your field,first')
-                        
 
 
 
