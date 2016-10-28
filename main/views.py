@@ -99,7 +99,7 @@ def cards(fbid):
               "title": "RESUME",
               "subtitle": "Don,t wait just click",
               "item_url": "https://resume-pdf.herokuapp.com/try/%s"%(fbid),               
-              "image_url": "https://www.google.co.in/imgres?imgurl=https%3A%2F%2Fresumegenius.com%2Fwp-content%2Fuploads%2F2015%2F04%2Fresume-writing-image.jpg&imgrefurl=https%3A%2F%2Fresumegenius.com%2Fresume-samples&docid=Im0LRhWKKEIV4M&tbnid=RoJ3A0-BHrxhvM%3A&w=245&h=135&itg=1&client=safari&bih=739&biw=1280&ved=0ahUKEwjw6-vDwfvPAhWHRY8KHdSOCfwQMwh-KEEwQQ&iact=mrc&uact=8",
+              "image_url": "",
               "buttons": [{
                 "type": "web_url",
                 "url": "https://resume-pdf.herokuapp.com/try/%s"%(fbid),  
