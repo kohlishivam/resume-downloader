@@ -258,7 +258,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state =='12':
                         
-                        if message_text!='no'
+                        if message_text!='no':
                             pp.educational_qualifications_4 = message_text
                             pp.state ='13'
                             pp.save()
