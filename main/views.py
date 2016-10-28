@@ -233,6 +233,7 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '12'
+                                post_facebook_message(sender_id,'COOL')
 
                             else :
                                 pp.educational_qualifications_2 = message_text
@@ -244,6 +245,8 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '12'
+                                post_facebook_message(sender_id,'COOL')
+
 
                             else :
                                 pp.educational_qualifications_3 = message_text
@@ -278,7 +281,9 @@ class MyChatBotView(generic.View):
                     elif pp.state=='15':
                         for i in range(1):
                             if message_text == 'no':
-                                pp.state = '18'
+                                pp.state = '17'
+                                post_facebook_message(sender_id,'COOL')
+
 
                             else :
                                 pp.skills_2 = message_text
@@ -290,6 +295,8 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '17'
+                                post_facebook_message(sender_id,'COOL')
+
 
                             else :
                                 pp.skills_3 = message_text
@@ -324,6 +331,8 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '22'
+                                post_facebook_message(sender_id,'COOL')
+
 
                             else :
                                 pp.experience_2 = message_text
@@ -335,6 +344,8 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '22'
+                                post_facebook_message(sender_id,'COOL')
+
 
                             else :
                                 pp.experience_3 = message_text
@@ -372,6 +383,8 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '28'
+                                post_facebook_message(sender_id,'COOL')
+
 
                             else :
                                 pp.hobbies_2 = message_text
@@ -383,6 +396,8 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '28'
+                                post_facebook_message(sender_id,'COOL')
+
 
                             else :
                                 pp.hobbies_3 = message_text
