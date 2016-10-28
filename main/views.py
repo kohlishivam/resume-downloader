@@ -232,7 +232,7 @@ class MyChatBotView(generic.View):
                     elif pp.state=='10':
                         for i in range(1):
                             if message_text == 'no':
-                                pp.state = '13'
+                                pp.state = '12'
 
                             else :
                                 pp.educational_qualifications_2 = message_text
@@ -243,7 +243,7 @@ class MyChatBotView(generic.View):
                     elif pp.state=='11':
                         for i in range(1):
                             if message_text == 'no':
-                                pp.state = '13'
+                                pp.state = '12'
 
                             else :
                                 pp.educational_qualifications_3 = message_text
@@ -252,20 +252,24 @@ class MyChatBotView(generic.View):
                                 post_facebook_message(sender_id,'Any more? if no simply type no')
 
                     elif pp.state =='12':
-                        pp.educational_qualifications_4 = message_text
-                        pp.state ='13'
-                        pp.save()
+                        if message_text=='no':
+                            pp.state ='13'
+                            pp.save()
+                            post_facebook_message(sender_id,'Great , now tell me your skills in your field,first')
+                        
+                        else:
+                            pp.educational_qualifications_4 = message_text
+                            pp.state ='13'
+                            pp.save()
+                            post_facebook_message(sender_id,'Great , now tell me your skills in your field,first')
 
 
 
 
 
+
+                
                     elif pp.state =='13':
-                        pp.state='14'
-                        pp.save()
-                        post_facebook_message(sender_id,'Great , now tell me your skills in your field,first')
-
-                    elif pp.state =='14':
                         pp.skills_1 = message_text
                         pp.state ='15'
                         pp.save()
@@ -278,14 +282,14 @@ class MyChatBotView(generic.View):
 
                             else :
                                 pp.skills_2 = message_text
-                                pp.state = '16'
+                                pp.state = '17'
                                 pp.save()
                                 post_facebook_message(sender_id,'Any more? if no simply type no')
 
                     elif pp.state=='16':
                         for i in range(1):
                             if message_text == 'no':
-                                pp.state = '18'
+                                pp.state = '17'
 
                             else :
                                 pp.skills_3 = message_text
@@ -294,20 +298,23 @@ class MyChatBotView(generic.View):
                                 post_facebook_message(sender_id,'Any more? if no simply type no')
 
                     elif pp.state =='17':
-                        pp.skills_4 = message_text
-                        pp.state ='18'
-                        pp.save()
+                        if message_text=='no':
+                            pp.state ='18'
+                            pp.save()
+                            post_facebook_message(sender_id,'Great , now tell me your experience,first')
+
+                        else:
+                            pp.skills_4 = message_text
+                            pp.state ='18'
+                            pp.save()
+                            post_facebook_message(sender_id,'Great , now tell me your experience,first')
 
 
 
 
 
+                   
                     elif pp.state =='18':
-                        pp.state='19'
-                        pp.save()
-                        post_facebook_message(sender_id,'Great , now tell me your experience,first')
-
-                    elif pp.state =='19':
                         pp.experience_1 = message_text
                         pp.state ='20'
                         pp.save()
@@ -316,7 +323,7 @@ class MyChatBotView(generic.View):
                     elif pp.state=='20':
                         for i in range(1):
                             if message_text == 'no':
-                                pp.state = '23'
+                                pp.state = '22'
 
                             else :
                                 pp.experience_2 = message_text
@@ -327,7 +334,7 @@ class MyChatBotView(generic.View):
                     elif pp.state=='21':
                         for i in range(1):
                             if message_text == 'no':
-                                pp.state = '23'
+                                pp.state = '22'
 
                             else :
                                 pp.experience_3 = message_text
@@ -336,22 +343,26 @@ class MyChatBotView(generic.View):
                                 post_facebook_message(sender_id,'Any more? if no simply type no')
 
                     elif pp.state =='22':
-                        pp.experience_4 = message_text
-                        pp.state ='23'
-                        pp.save()
+                        if message_text == 'no':
+                            pp.state ='23'
+                            pp.save()
+                            post_facebook_message(sender_id,'Great , now tell me your hobbies,first')
+
+                        else:
+                            pp.experience_4 = message_text
+                            pp.state ='23'
+                            pp.save()
+                            post_facebook_message(sender_id,'Great , now tell me your hobbies,first')
 
 
 
 
 
 
+
+                    
 
                     elif pp.state =='23':
-                        pp.state='24'
-                        pp.save()
-                        post_facebook_message(sender_id,'Great , now tell me your hobbies,first')
-
-                    elif pp.state =='24':
                         pp.hobbies_1 = message_text
                         pp.state ='25'
                         pp.save()
