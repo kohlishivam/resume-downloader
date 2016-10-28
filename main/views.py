@@ -290,7 +290,7 @@ class MyChatBotView(generic.View):
 
                             else :
                                 pp.skills_2 = message_text
-                                pp.state = '17'
+                                pp.state = '16'
                                 pp.save()
                                 post_facebook_message(sender_id,'Any more? if no simply type no')
 
