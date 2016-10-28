@@ -231,7 +231,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state=='10':
                         for i in range(1):
-                            if message_text = 'no':
+                            if message_text == 'no':
                                 pp.state = '13'
 
                             else :
@@ -242,7 +242,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state=='11':
                         for i in range(1):
-                            if message_text = 'no':
+                            if message_text == 'no':
                                 pp.state = '13'
 
                             else :
@@ -273,7 +273,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state=='15':
                         for i in range(1):
-                            if message_text = 'no':
+                            if message_text == 'no':
                                 pp.state = '18'
 
                             else :
@@ -284,7 +284,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state=='16':
                         for i in range(1):
-                            if message_text = 'no':
+                            if message_text == 'no':
                                 pp.state = '18'
 
                             else :
@@ -315,7 +315,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state=='20':
                         for i in range(1):
-                            if message_text = 'no':
+                            if message_text == 'no':
                                 pp.state = '23'
 
                             else :
@@ -326,7 +326,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state=='21':
                         for i in range(1):
-                            if message_text = 'no':
+                            if message_text == 'no':
                                 pp.state = '23'
 
                             else :
@@ -359,7 +359,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state=='25':
                         for i in range(1):
-                            if message_text = 'no':
+                            if message_text == 'no':
                                 pp.state = '28'
 
                             else :
@@ -370,7 +370,7 @@ class MyChatBotView(generic.View):
 
                     elif pp.state=='26':
                         for i in range(1):
-                            if message_text = 'no':
+                            if message_text == 'no':
                                 pp.state = '28'
 
                             else :
