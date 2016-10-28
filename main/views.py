@@ -233,6 +233,7 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '12'
+                                pp.save()
                                 post_facebook_message(sender_id,'COOL')
 
                             else :
@@ -245,6 +246,7 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '12'
+                                pp.save()
                                 post_facebook_message(sender_id,'COOL')
 
 
@@ -282,6 +284,7 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '17'
+                                pp.save()
                                 post_facebook_message(sender_id,'COOL')
 
 
@@ -295,6 +298,7 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '17'
+                                pp.save()
                                 post_facebook_message(sender_id,'COOL')
 
 
@@ -331,6 +335,7 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '22'
+                                pp.save()
                                 post_facebook_message(sender_id,'COOL')
 
 
@@ -344,6 +349,7 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '22'
+                                pp.save()
                                 post_facebook_message(sender_id,'COOL')
 
 
@@ -383,6 +389,7 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '28'
+                                pp.save()
                                 post_facebook_message(sender_id,'COOL')
 
 
@@ -396,6 +403,7 @@ class MyChatBotView(generic.View):
                         for i in range(1):
                             if message_text == 'no':
                                 pp.state = '28'
+                                pp.save()
                                 post_facebook_message(sender_id,'COOL')
 
 
