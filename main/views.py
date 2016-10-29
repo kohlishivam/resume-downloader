@@ -49,7 +49,7 @@ def resume(request,id):
     p.setFont("Helvetica", 13)
     p.drawString(0,705,"Educational Qualifications ")
     p.setStrokeColor(colors.red)    
-    p.line(0,700,500,750)
+    p.line(0,700,500,700)
     p.setFont("Helvetica", 9)
     p.drawString(20,690,pp.educational_qualifications_1)
     p.drawString(20,680,pp.educational_qualifications_2)
